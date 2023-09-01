@@ -1,0 +1,39 @@
+﻿@{
+    ABlog bloginfo = (ABlog)ViewData["bloginfo"];
+    if (bloginfo == null)
+        bloginfo = new ABlog("0", "null", "null", "0");
+}
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@bloginfo.Title</title>
+    <link href="~/lib/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MyBlog.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <script src="~/lib/layui/layui.js"></script>
+    <header>
+        <div class="layui-panel">
+            <span class="layui-breadcrumb" lay-separator=">" style="padding:16px;">
+                <a asp-controller="Home" asp-action="Index">首页</a>
+                <a asp-controller="Blog" asp-action="List">博客</a>
+                <a asp-controller="Blog" asp-action="Get" asp-route-bId="@bloginfo.BId"><cite>@bloginfo.Title</cite></a>
+            </span>
+        </div>
+        <a asp-controller="Blog" asp-action="List"><i class="layui-icon layui-icon-return layui-font-26"></i></a>
+    </header>
+    <div class="container" style="margin:0px 15%">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

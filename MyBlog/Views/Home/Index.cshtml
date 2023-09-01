@@ -1,0 +1,44 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/lib/layui/css/layui.css" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/nav-font.css">
+    <link rel="stylesheet" href="~/css/index.css">
+    <title>264的个人博客</title>
+</head>
+
+<body class="layui-anim layui-anim-scalesmall">
+    <script src="~/lib/layui/layui.js"></script>
+
+    <header>
+        <div class="head layui-row">
+            <div class="layui-col-md12">
+                <img id="head-img" class="layui-circle" src="~/assets/head.jpg" width="200px"
+                     height="200px" />
+            </div>
+            <h2 id="head-name" class="layui-col-md12 layui-font-black">hollow-264</h2>
+        </div>
+    </header>
+    <hr class="layui-border-green">
+    <h1 id="preface">🌈一切都是命中注定</h1>
+    <nav>
+        <ul id="nav" class="layui-nav layui-font-black" style="background-color:white">
+            <li class="layui-nav-item"><a asp-controller="Home" asp-action="Index" class="layui-font-20 layui-font-black"><i class="layui-icon layui-icon-home" style="font-size: 20px; color: #1E9FFF;"></i>首页</a></li>
+            <li class="layui-nav-item"><a asp-controller="Blog" asp-action="List" class="layui-font-20 layui-font-black"><i class="layui-icon layui-icon-list" style="font-size: 20px; color: #1E9FFF;"></i>博客</a></li>
+            <li class="layui-nav-item"><a asp-controller="Home" asp-action="Life" class="layui-font-20 layui-font-black"><i class="layui-icon layui-icon-tree" style="font-size: 20px; color: #1E9FFF;"></i>生活</a></li>
+            <li class="layui-nav-item"><a asp-controller="Home" asp-action="Frends" class="layui-font-20 layui-font-black"><i class="layui-icon layui-icon-dialogue" style="font-size: 20px; color: #1E9FFF;"></i>友人</a></li>
+            <li class="layui-nav-item"><a asp-controller="Home" asp-action="About" class="layui-font-20 layui-font-black"><i class="layui-icon layui-icon-about" style="font-size: 20px; color: #1E9FFF;"></i>关于</a></li>
+            <li class="layui-nav-item"><a asp-controller="Home" asp-action="Summary" class="layui-font-20 layui-font-black"><i class="layui-icon layui-icon-flag" style="font-size: 20px; color: #1E9FFF;"></i>归档</a></li>
+        </ul>
+    </nav>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+﻿body {
+    font-family: "FZFSK";
+    padding-right:10%;
+    padding-left:10%;
+}
+
+header {
+    margin-top: 5%;
+}
+
+.head div {
+    text-align: center;
+}
+
+#head-name,
+#preface {
+    text-align: center;
+    margin: 1em 0px;
+}
