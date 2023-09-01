@@ -1,0 +1,15 @@
+﻿@{
+}
+@model MyBlog.Models.Blogs;
+
+@{
+    foreach(ABlog aBlog in Model.BlogList)
+    {
+        <div>
+            <h1>@aBlog.Title</h1>
+            <p class="layui-font-18 ">@aBlog.Abstracts</p>
+            <a class="layui-font-18 layui-font-blue">详情...</a>
+            <hr />
+        </div>
+    }
+}

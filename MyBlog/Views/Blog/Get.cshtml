@@ -1,0 +1,18 @@
+﻿@{
+    Layout = "BlogLayout";
+    ABlog bloginfo = ViewData["bloginfo"] as ABlog;
+    ABContent content = ViewData["content"] as ABContent;
+}
+<div style="padding:16px;">
+    <h1>@bloginfo.Title</h1>
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>摘要</legend>
+    </fieldset>
+    <blockquote class="layui-elem-quote layui-font-16">@bloginfo.Abstracts</blockquote>
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>正文</legend>
+    </fieldset>
+    <div class="layui-font-18" style="line-height:2">
+        @content.Content
+    </div>
+</div>
