@@ -6,10 +6,10 @@
 @{
     foreach (ABlog aBlog in Model.BlogList)
     {
-        <div style="padding:16px;line-height:2">
-            <h1>@aBlog.Title</h1>
-            <p class="layui-font-18 ">@aBlog.Abstracts</p>
-            <a asp-controller="Blog" asp-action="Get" asp-route-bId="@aBlog.BId" class="layui-font-blue">详情...</a>
+        <div style="padding:16px;">
+            <h1 style="line-height:3">@aBlog.Title</h1>
+            <p class="layui-font-16 " style="line-height:2">@aBlog.Abstracts</p>
+            <a asp-controller="Blog" asp-action="Get" asp-route-bId="@aBlog.BId" class="layui-font-blue layui-font-16" style="line-height:2">详情...</a>
         </div>
         <hr class="layui-boreder-black" />
     }

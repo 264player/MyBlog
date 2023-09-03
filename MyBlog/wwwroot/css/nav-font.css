@@ -1,11 +1,4 @@
-﻿@font-face {
-    font-family: "FZFSK";
-    src: url("~/lib/myfont/FZFSK.TTF");
-}
-* {
-    font-family: "微软雅黑",sans-serif;
-}
-#nav {
+﻿#nav {
     text-align: center;
     margin: 1em 0px;
 }
