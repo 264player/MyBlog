@@ -2,17 +2,28 @@
     Layout = "BlogLayout";
     ABlog bloginfo = ViewData["bloginfo"] as ABlog;
     ABContent content = ViewData["content"] as ABContent;
+    //string afterabs = string.Empty, aftercon = string.Empty;
 }
+
 <div style="padding:16px;">
     <h1>@bloginfo.Title</h1>
     <fieldset class="layui-elem-field layui-field-title">
         <legend>摘要</legend>
     </fieldset>
-    <blockquote class="layui-elem-quote layui-font-16">@bloginfo.Abstracts</blockquote>
+    <blockquote id="abs" class="layui-elem-quote layui-font-16"></blockquote>
     <fieldset class="layui-elem-field layui-field-title">
         <legend>正文</legend>
     </fieldset>
-    <div class="layui-font-18" style="line-height:2">
-        @content.Content
+    <div id ="content" class="layui-font-18" style="line-height:2">
     </div>
 </div>
+<script>
+    let Abs = document.getElementById("abs"),Con = document.getElementById("content");
+    function convertMarkdown(source) {
+        var converter = new showdown.Converter(),
+            html = converter.makeHtml(source);
+        return html;
+    }
+    Abs.innerHTML = convertMarkdown("@bloginfo.Abstracts");
+    Con.innerHTML = convertMarkdown("@content.Content");
+</script>

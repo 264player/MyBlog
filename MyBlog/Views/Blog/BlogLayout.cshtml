@@ -15,6 +15,7 @@
 </head>
 <body>
     <script src="~/lib/layui/layui.js"></script>
+    <script src="~/js/markengin/dist/showdown.js"></script>
     <header>
         <div class="layui-panel">
             <span class="layui-breadcrumb" lay-separator=">" style="padding:16px;">
@@ -23,12 +24,23 @@
                 <a asp-controller="Blog" asp-action="Get" asp-route-bId="@bloginfo.BId"><cite>@bloginfo.Title</cite></a>
             </span>
         </div>
-        <a asp-controller="Blog" asp-action="List"><i class="layui-icon layui-icon-return layui-font-26"></i></a>
+        <a asp-controller="Blog" asp-action="List"><i class="layui-icon layui-icon-return layui-font-26" style="padding:10px;"></i></a>
     </header>
-    <div class="container" style="margin:0px 15%">
+    <div class="container" style="margin:0px 20%">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+        <hr />
+        <p>编辑于</p>
+        <p><i class="layui-icon layui-icon-eye"></i></p>
+        <form class="layui-form" action="">
+            <div class="layui-form-item">
+                <input name="" type="text" />
+            </div>
+            <div class="layui-form-item">
+                <input type="submit" class=""/>
+            </div>
+        </form>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
