@@ -19,16 +19,19 @@ namespace MyBlog.Controllers
         [Route("")]
         [Route("Index")]
         public IActionResult Index() { return  View(); }
+        [HttpPost]
         [Route("Creat")]
         public IActionResult Creat(string title,string abs,string content,string uId, string bId)
         {
+            //title = "post失败";
+            //title = Request.Form["title"];
             uId = "1";
             bId = MyUniqueId.GuidTo16String();
             ABlog blog = new ABlog(uId,title,abs,bId);   
             ABContent aBContent = new ABContent(bId,content); 
             _blogDao.CreatBlog(blog);
             _blogContent.CreatBlog(aBContent);
-            return View("Index");
+            return RedirectToAction("SubmitOK");
         }
         [Route("List")]
         public IActionResult List()
@@ -85,5 +88,8 @@ namespace MyBlog.Controllers
             var b = new ABlog("1", title, abs, "1");
             return View("Creat",b);
         }
+
+        [Route("SubmitOK")]
+        public IActionResult SubmitOK() {return View("SubmitOK"); }
     }
 }
