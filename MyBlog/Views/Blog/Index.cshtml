@@ -16,15 +16,35 @@
             <input name="abs" type="text" class="layui-input" placeholder="请填写摘要" />
         </div>
     </div>
-    <div class="layui-form-item layui-form-text">
-        <label class="layui-form-label">正文</label>
-        <div class="layui-input-block">
-            <textarea name="content" class="layui-textarea" placeholder="请填写内容"></textarea>
+    <div class="layui-row layui-form-item">
+        <div class="layui-inline layui-form-text layui-col-xs5">
+            <label class="layui-form-label">正文</label>
+            <div class="layui-input-inlie">
+                <textarea id="source" name="content" class="layui-textarea" placeholder="请填写内容"></textarea>
+            </div>
+        </div>
+        <div class=" layui-inline layui-form-text layui-col-xs5">
+            <label class="layui-form-label">解析后</label>
+            <div class="layui-input-inlie">
+                <div id="decoding" class="layui-textarea"></div>
+            </div>
         </div>
     </div>
     <div class="layui-form-item">
         <button type="submit" class="layui-btn" lay-submit>确认</button>
         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
     </div>
-
+    <script>
+        let source = document.getElementById("source"), decode = document.getElementById("decoding");
+        function convertMarkdown(source) {
+            var converter = new showdown.Converter(),
+                html = converter.makeHtml(source);
+            return html;
+        }
+        
+        source.oninput = function () { decode.innerHTML = convertMarkdown(source.value);
+            console.log(source.innerText);
+        };
+        
+    </script>
 </form>

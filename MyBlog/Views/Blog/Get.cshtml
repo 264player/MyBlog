@@ -2,6 +2,7 @@
     Layout = "BlogLayout";
     ABlog bloginfo = ViewData["bloginfo"] as ABlog;
     ABContent content = ViewData["content"] as ABContent;
+    Console.WriteLine(content.Content);
 }
 
 <div style="padding:16px;">
@@ -9,11 +10,12 @@
     <fieldset class="layui-elem-field layui-field-title">
         <legend>摘要</legend>
     </fieldset>
-    <blockquote id="abs" class="layui-elem-quote layui-font-16"></blockquote>
+    <blockquote id="abs" class="layui-elem-quote layui-font-16">@bloginfo.Abstracts</blockquote>
     <fieldset class="layui-elem-field layui-field-title">
         <legend>正文</legend>
     </fieldset>
     <div id ="content" class="layui-font-18" style="line-height:2">
+        @content.Content
     </div>
 </div>
 <script>
@@ -23,6 +25,7 @@
             html = converter.makeHtml(source);
         return html;
     }
-    Abs.innerHTML = convertMarkdown("@bloginfo.Abstracts");
-    Con.innerHTML = convertMarkdown("@content.Content");
+    Abs.innerHTML = convertMarkdown(Abs.innerText.trim());
+    Con.innerHTML = convertMarkdown(Con.innerHTML.trim());
+    console.log(Con.innerHTML);
 </script>

@@ -26,6 +26,7 @@ namespace MyBlog.Controllers
             string uId, bId;
             uId = "1";
             bId = MyUniqueId.GuidTo16String();
+            Console.WriteLine(content);
             ABlog blog = new ABlog(uId,title,abs,bId);   
             ABContent aBContent = new ABContent(bId,content); 
             _blogDao.CreatBlog(blog);
@@ -60,7 +61,6 @@ namespace MyBlog.Controllers
 
             bloginfo.GetCount++;
             _blogDao.UpdateBlog(bloginfo);
-
             ViewData["bloginfo"] = bloginfo;
             ViewData["content"] = content;
             return View();
