@@ -21,10 +21,9 @@ namespace MyBlog.Controllers
         public IActionResult Index() { return  View(); }
         [HttpPost]
         [Route("Creat")]
-        public IActionResult Creat(string title,string abs,string content,string uId, string bId)
+        public IActionResult Creat(string title,string abs,string content)
         {
-            //title = "post失败";
-            //title = Request.Form["title"];
+            string uId, bId;
             uId = "1";
             bId = MyUniqueId.GuidTo16String();
             ABlog blog = new ABlog(uId,title,abs,bId);   
@@ -58,6 +57,10 @@ namespace MyBlog.Controllers
         {
             var content = _blogContent.GetBlogById(bId);
             var bloginfo = _blogDao.GetBlogById(bId);
+
+            bloginfo.GetCount++;
+            _blogDao.UpdateBlog(bloginfo);
+
             ViewData["bloginfo"] = bloginfo;
             ViewData["content"] = content;
             return View();

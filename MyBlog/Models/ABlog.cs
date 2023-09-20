@@ -14,6 +14,8 @@ namespace MyBlog.Models
             this.Title = title;
             this.Abstracts = abstracts;
             this.BId = bId;
+            this.GetCount = 0;
+            this.GetDate = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
         [Column("uid")]
         /// <summary>
@@ -35,5 +37,15 @@ namespace MyBlog.Models
         /// 博客正文Id
         /// </summary>
         public string BId { get; set; }
+        /// <summary>
+        /// 访问量
+        /// </summary>
+        [Column("getcount")]
+        public int GetCount { get; set; }
+        /// <summary>
+        /// 最后修改博客的时间
+        /// </summary>
+        [Column("birth")]
+        public string GetDate { get; set; }
     }
 }
